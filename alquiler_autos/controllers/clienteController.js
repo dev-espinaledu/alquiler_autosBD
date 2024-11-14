@@ -1,4 +1,4 @@
-const {Cliente} = require('../models/alquilerModel');
+const {Cliente} = require('../models');
 
 const crearCliente = async (req, res) => {
     try {
@@ -12,7 +12,7 @@ const crearCliente = async (req, res) => {
 }
 const verClientes = async (req, res) => {
     try {
-        const clientes = await Cliente.find();
+        const clientes = await Cliente.findAll();
         res.json(clientes);
     } catch (e) {
         res.json({message: "error"})

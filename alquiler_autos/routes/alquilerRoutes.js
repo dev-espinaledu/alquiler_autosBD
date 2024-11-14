@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const alquileresC = require('../controllers/alquileresController')
+const alquileresC = require('../controllers/alquilerController')
 
 router.post('/alquileres', alquileresC.crearAlquiler);
 router.get('/alquileres', alquileresC.verAlquileres);

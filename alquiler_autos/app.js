@@ -1,20 +1,16 @@
 const express = require("express");
 const app = express();
+require('dotenv').config();
 const autoR = require('./routes/autoRoutes')
 const clienteR = require('./routes/clienteRoutes')
-const alquileresR = require('./routes/alquileresRoutes')
-const conectDB = require('./config/db')
+const alquileresR = require('./routes/alquilerRoutes')
+const PORT = process.env.PORT
 app.use(express.json())
 
 app.use('/api', autoR);
 app.use('/api', clienteR);
 app.use('/api', alquileresR);
 
-conectDB().then(() => {
-    const port = process.PORT || 4000;
-    app.listen(port, () => {
-        console.log(`Servidor corriendo en http://localhost:${port}`);
-    });
-}).catch((error) => {
-    console.error("No se pudo iniciar en el servidor debido a un error de conexión con la base de datos", error);
-});
+app.listen(PORT, () => {
+    console.log("Servidor corriendo");
+})

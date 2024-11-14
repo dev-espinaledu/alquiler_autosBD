@@ -1,4 +1,4 @@
-const {Auto} = require('../models/alquilerModel');
+const {Auto} = require('../models');
 
 const crearAuto = async (req, res) => {
     try {
@@ -12,7 +12,7 @@ const crearAuto = async (req, res) => {
 }
 const verAutos = async (req, res) => {
     try {
-        const autos = await Auto.find();
+        const autos = await Auto.findAll();
         res.json(autos);
     } catch (e) {
         res.json({message: "Error"});

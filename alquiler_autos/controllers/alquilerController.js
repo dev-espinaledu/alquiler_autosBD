@@ -1,4 +1,4 @@
-const {Alquiler} = require('../models/alquilerModel')
+const {Alquiler} = require('../models')
 
 const crearAlquiler = async (req, res) => {
     try {
@@ -15,7 +15,7 @@ const verAlquileres = async (req, res) => {
         const alquileres = await Alquiler.findAll();
         res.json(alquileres)
     } catch (e) {
-        res.json({message: "Error"})
+        res.json({message: "Error al encontrar vehículos"})
     }
 }
 const actualizarAlquiler = async (req, res) => {
